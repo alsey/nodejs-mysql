@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-mysql",
+  "version": "0.0.1",
+  "description": "The wrapper module of Node.js MySQL driver with Promise enabled.",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [
+    "mysql",
+    "promise"
+  ],
+  "author": "Alsey (zamber@neusoft.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/alsey/nodejs-mysql/issues"
+  },
+  "homepage": "https://github.com/alsey/nodejs-mysql#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "mysql": "^2.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alsey/nodejs-mysql.git"
+  },
+  "devDependencies": {
+  }
+}
