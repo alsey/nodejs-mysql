@@ -14,9 +14,7 @@ $ npm install nodejs-mysql
 
 # How to Use
 
-**[Quick Start]**
-
-The code style is this.
+The code style is like this.
 
 ```javascript
 import mysql from 'nodejs-mysql'
