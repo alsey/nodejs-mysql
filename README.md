@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/nodejs-mysql.svg)](https://badge.fury.io/js/nodejs-mysql) [![build status](https://travis-ci.org/alsey/nodejs-mysql.svg?branch=master)](https://travis-ci.org/alsey/nodejs-mysql) [![dependencies status](https://david-dm.org/alsey/nodejs-mysql.png)](https://david-dm.org/alsey/nodejs-mysql) [![Coverage Status](https://coveralls.io/repos/github/alsey/nodejs-mysql/badge.svg?branch=master)](https://coveralls.io/github/alsey/nodejs-mysql?branch=master)
 
-The wrapper module of Node.js MySQL driver with Promise enabled.
+[![NPM](https://nodei.co/npm/nodejs-mysql.png?compact=true)](https://nodei.co/npm/nodejs-mysql/)
+
+The wrapper of Node.js MySQL driver with Promise enabled.
 
 ## Install
 
