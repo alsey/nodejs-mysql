@@ -1,5 +1,7 @@
 # nodejs-mysql
 
+[![npm version](https://badge.fury.io/js/nodejs-mysql.svg)](https://badge.fury.io/js/nodejs-mysql) 
+
 The wrapper module of Node.js MySQL driver with Promise enabled.
 
 ## Install
