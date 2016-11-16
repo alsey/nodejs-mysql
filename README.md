@@ -12,7 +12,7 @@ $ npm install nodejs-mysql
 
 **[Quick Start]**
 
-Let's take a look of the style using this module.
+The code style is this.
 
 ```javascript
 import mysql from 'nodejs-mysql'
@@ -26,7 +26,7 @@ db.exec('select col1, col2 from a_table')
 
 ### 1. Database Connection Configuration
 
-First, use a config object to describe the database connection(s).
+Use a config object to describe the database connection(s).
 
 ```javascript
 // single database connection
@@ -70,17 +70,17 @@ const config = [
 
 ### 2. Get an Instance
 
-Then, get an instance to make database operation.
+Get an instance in anywhere before do database operation.
 
 ```javascript
+import mysql from 'nodejs-mysql'
+
 const db = mysql.getInstance(config)
 ```
 
-This style lets client uses mysql driver in multiple files but only one instance.
-
 ### 3. Do Database Operation
 
-In brief, one method for all database operation.
+One method for all database operation, NO need close database connection.
 
 ```javascript
 // select
@@ -123,11 +123,7 @@ db.exec('delete from a_table where col1 = ?', [value1])
 		})
 ```
 
-That's all , no need close database connection.
-
 ### 4. Transaction
-
-Transaction style likes this.
 
 ```javascript
 db.connect()
