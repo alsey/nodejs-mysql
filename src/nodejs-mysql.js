@@ -18,99 +18,99 @@ import Promise from 'bluebird'
 
 export default class MySQL {
 
-	static getInstance(dbs) {
-		if (!this.instance)
-			this.instance = new MySQL(dbs)
-		return this.instance
-	}
+    static getInstance(dbs) {
+        if (!this.instance)
+            this.instance = new MySQL(dbs)
+        return this.instance
+    }
 
-	constructor(dbs) {
-		if (Array.isArray(dbs)) {
-			this.pool = mysql.createPoolCluster()
-			for (let config of dbs)
-				this.pool.add(config)
-		} else {
-			this.pool = mysql.createPool(dbs)
-		}
-	}
+    constructor(dbs) {
+        if (Array.isArray(dbs)) {
+            this.pool = mysql.createPoolCluster()
+            for (let config of dbs)
+                this.pool.add(config)
+        } else {
+            this.pool = mysql.createPool(dbs)
+        }
+    }
 
-	exec(sql, params) {
-		return new Promise((resolve, reject) => {
-			this.pool.getConnection((err, conn) => {
-				if (err) {
-					console.error('database error!', err.stack ? err.stack : err)
-					if (conn) conn.release()
-					return reject(err)
-				}
-				conn.query(sql, params, (err, rows) => {
-					if (err) {
-						console.error('query error!', err.stack ? err.stack : err)
-						if (conn) conn.release()
-						return reject(err)
-					}
-					resolve(rows)
-				}).on('end', () => {
-					conn.commit((err) => console.error)
-					conn.release()
-				})
-			})
-		})
-	}
+    exec(sql, params) {
+        return new Promise((resolve, reject) => {
+            this.pool.getConnection((err, conn) => {
+                if (err) {
+                    console.error('database error!', err.stack ? err.stack : err)
+                    if (conn) conn.release()
+                    return reject(err)
+                }
+                conn.query(sql, params, (err, rows) => {
+                    if (err) {
+                        console.error('query error!', err.stack ? err.stack : err)
+                        if (conn) conn.release()
+                        return reject(err)
+                    }
+                    resolve(rows)
+                }).on('end', () => {
+                    conn.commit((err) => console.error)
+                    conn.release()
+                })
+            })
+        })
+    }
 
-	ok(rows) {
-		return new Promise((resolve, reject) => resolve(rows))
-	}
+    ok(rows) {
+        return new Promise((resolve, reject) => resolve(rows))
+    }
 
-	connect() {
-		return new Promise((resolve, reject) => {
-			this.pool.getConnection((err, conn) => {
-				if (err) {
-					console.error('database error!', err.stack ? err.stack : err)
-					if (conn) conn.release()
-					return reject(err)
-				}
-				resolve(conn)
-			})
-		})
-	}
+    connect() {
+        return new Promise((resolve, reject) => {
+            this.pool.getConnection((err, conn) => {
+                if (err) {
+                    console.error('database error!', err.stack ? err.stack : err)
+                    if (conn) conn.release()
+                    return reject(err)
+                }
+                resolve(conn)
+            })
+        })
+    }
 
-	trans(conn) {
-		return new Promise((resolve, reject) => {
-			conn.beginTransaction((err) => {
-				if (err) {
-					console.error('start transaction error!', err.stack ? err.stack : err)
-					if (conn) conn.release()
-					return reject(err)
-				}
-				resolve(conn)
-			})
-		})
-	}
+    trans(conn) {
+        return new Promise((resolve, reject) => {
+            conn.beginTransaction((err) => {
+                if (err) {
+                    console.error('start transaction error!', err.stack ? err.stack : err)
+                    if (conn) conn.release()
+                    return reject(err)
+                }
+                resolve(conn)
+            })
+        })
+    }
 
-	query(sql, params, conn) {
-		return new Promise((resolve, reject) => {
-			conn.query(sql, params, (err, rows) => {
-				if (err) {
-					console.error('query error!', err.stack ? err.stack : err)
-					if (conn) conn.rollback()
-					if (conn) conn.release()
-					return reject(err)
-				}
-				resolve(rows, conn)
-			})
-		})
-	}
+    query(sql, params, conn) {
+        return new Promise((resolve, reject) => {
+            conn.query(sql, params, (err, rows) => {
+                if (err) {
+                    console.error('query error!', err.stack ? err.stack : err)
+                    if (conn) conn.rollback()
+                    if (conn) conn.release()
+                    return reject(err)
+                }
+                resolve(rows, conn)
+            })
+        })
+    }
 
-	commit(conn) {
-		return new Promise((resolve, reject) => {
-			conn.commit((err) => {
-				if (err) {
-					console.error('commit error!', err.stack ? err.stack : err)
-					if (conn) conn.rollback()
-					if (conn) conn.release()
-					return reject(err)				
-				}
-			})
-		})
-	}
+    commit(conn) {
+        return new Promise((resolve, reject) => {
+            conn.commit((err) => {
+                if (err) {
+                    console.error('commit error!', err.stack ? err.stack : err)
+                    if (conn) conn.rollback()
+                    if (conn) conn.release()
+                    return reject(err)              
+                }
+            })
+        })
+    }
 }
