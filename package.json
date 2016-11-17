@@ -1,6 +1,6 @@
 {
   "name": "nodejs-mysql",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The wrapper of Node.js MySQL driver with Promise enabled.",
   "main": "index.js",
   "scripts": {
