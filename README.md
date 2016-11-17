@@ -1,6 +1,6 @@
 # nodejs-mysql
 
-[![npm version](https://badge.fury.io/js/nodejs-mysql.svg)](https://badge.fury.io/js/nodejs-mysql) [![build status](https://travis-ci.org/alsey/nodejs-mysql.svg?branch=master)](https://travis-ci.org/alsey/nodejs-mysql) [![dependencies status](https://david-dm.org/alsey/nodejs-mysql.png)](https://david-dm.org/alsey/nodejs-mysql) [![Coverage Status](https://coveralls.io/repos/github/alsey/nodejs-mysql/badge.svg?branch=master)](https://coveralls.io/github/alsey/nodejs-mysql?branch=master)
+[![npm version](https://badge.fury.io/js/nodejs-mysql.svg)](https://badge.fury.io/js/nodejs-mysql) [![download](https://img.shields.io/npm/dm/nodejs-mysql.svg)](https://www.npmjs.com/package/nodejs-mysql) [![build status](https://travis-ci.org/alsey/nodejs-mysql.svg?branch=master)](https://travis-ci.org/alsey/nodejs-mysql) [![dependencies status](https://david-dm.org/alsey/nodejs-mysql.png)](https://david-dm.org/alsey/nodejs-mysql) [![Coverage Status](https://coveralls.io/repos/github/alsey/nodejs-mysql/badge.svg?branch=master)](https://coveralls.io/github/alsey/nodejs-mysql?branch=master)
 
 [![NPM](https://nodei.co/npm/nodejs-mysql.png?compact=true)](https://nodei.co/npm/nodejs-mysql/)
 
@@ -78,6 +78,12 @@ Get an instance in anywhere before do database operation.
 import mysql from 'nodejs-mysql'
 
 const db = mysql.getInstance(config)
+```
+
+If you are not using ES6, the import code is,
+
+```javascript
+const mysql = require('nodejs-mysql').default;
 ```
 
 ### 3. Do Database Operation
