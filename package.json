@@ -1,6 +1,6 @@
 {
   "name": "nodejs-mysql",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The wrapper of Node.js MySQL driver with Promise enabled.",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "promise"
   ],
   "author": "Alsey (zamber@neusoft.com)",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/alsey/nodejs-mysql/issues"
   },
