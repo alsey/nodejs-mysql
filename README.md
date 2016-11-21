@@ -26,6 +26,10 @@ db.exec('select col1, col2 from a_table')
 $ npm install nodejs-mysql
 ```
 
+## Demo
+
+Folder `demo` includes a simple demo of both [ES5](https://github.com/alsey/nodejs-mysql/blob/master/demo/simple_es5.js) and [ES6](https://github.com/alsey/nodejs-mysql/blob/master/demo/simple_es6.js). 
+
 ## How to Use
 
 Use config object to describe database connection(s).
