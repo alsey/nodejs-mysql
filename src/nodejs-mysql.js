@@ -53,7 +53,6 @@ export default class MySQL {
                 conn.query(sql, params, (err, rows) => {
                     if (err) {
                         console.error('query error!', err.stack ? err.stack : err)
-                        if (conn) conn.release()
                         return reject(err)
                     }
                     resolve(rows)
